@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.capg.demo</groupId>
-	<artifactId>demo-spring-boot-userDetails</artifactId>
+	<artifactId>demo-spring-boot-userData</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo-spring-boot-userDetails</name>
+	<name>demo-spring-boot-userData</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
