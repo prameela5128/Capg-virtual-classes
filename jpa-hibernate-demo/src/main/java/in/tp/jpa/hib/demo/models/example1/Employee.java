@@ -9,6 +9,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TestEmps")
+@NamedQueries({
+		@NamedQuery(name="empBasicRangeQry",
+		query = "SELECT e FROM Employee e WHERE e.basic BETWEEN :lBound AND :uBound"),
+		@NamedQuery(name="empNameQry",
+		query="SELECT e FROM Employee e WHERE e.empName=:ename")
+	})
 public class Employee {
 
 	@Id
