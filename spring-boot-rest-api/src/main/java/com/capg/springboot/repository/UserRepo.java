@@ -1,6 +1,4 @@
-
-
-package com.capg.springboot.repository;
+ package com.capg.springboot.repository;
 
 import java.util.List;
 
@@ -41,4 +39,3 @@ public class UserRepo {
 		return em.merge(user);
 	}
 }
-
