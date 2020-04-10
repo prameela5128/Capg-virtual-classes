@@ -1,26 +1,32 @@
 package com.capg.movieinfo.model;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
-@Entity
-@Setter
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class MovieInfo {
-
-	@Id
-	private Long id;
+	private long id;
+	private double rating;
 	private String movieName;
-	private String movieRating;
+
+	public String getMovieName() {
+		return movieName;
+	}
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public double getRating() {
+		return rating;
+	}
+	public void setRating(double rating) {
+		this.rating = rating;
+	}
+	public MovieInfo(long id, double rating, String movieName) {
+		super();
+		this.id = id;
+		this.rating = rating;
+		this.movieName = movieName;
+	}
 }
