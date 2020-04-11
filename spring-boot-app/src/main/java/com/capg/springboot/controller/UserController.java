@@ -33,7 +33,7 @@ public class UserController {
 	}
 	
 	
-	//@ModelAttribute
+	//@M
 	
 	@GetMapping("/")
 	public String getDefaultPage() {
