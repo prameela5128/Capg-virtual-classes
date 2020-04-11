@@ -13,7 +13,7 @@ import com.capg.model.Product;
 import com.capg.service.ProductService;
 
 @RestController
-@CrossOrigin(origins="*")
+//@CrossOrigin(origins="*")
 public class ProductController {
 
 	@Autowired
