@@ -1,4 +1,4 @@
-package com.capg.exceptions;
+package com.capg.demo.exceptions;
 
 public class StudentNotFoundException extends RuntimeException {
 

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.capg.demo.model.Student;
 import com.capg.demo.repo.StudentJpaRepo;
 import com.capg.demo.repo.StudentRepo;
-import com.capg.exceptions.StudentNotFoundException;
+import com.capg.demo.exceptions.StudentNotFoundException;
 
 @Service
 public class StudentService {

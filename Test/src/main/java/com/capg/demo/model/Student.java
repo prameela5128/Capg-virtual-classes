@@ -3,11 +3,12 @@ package com.capg.demo.model;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
 @Table(name="Student_details")
 public class Student {
-
+	@Id
 	private int studentId;
 	private String studentName;
 	private LocalDate dob ;
