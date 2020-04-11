@@ -2,32 +2,47 @@ package com.capg.demo.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capg.demo.model.Student;
+import com.capg.demo.repo.StudentJpaRepo;
 import com.capg.demo.repo.StudentRepo;
+import com.capg.exceptions.StudentNotFoundException;
 
 @Service
 public class StudentService {
-
-	@Autowired
-	StudentRepo  Students;
-	public Student   findStudentByName(String studentName)
-	{
-		return  Students.findStudentByName(studentName);
-	}
 	
-	public List<Student> findall() {
-		return Students.findall();
-	}
+	@Autowired(required = true)
+	StudentJpaRepo studentRepo;
 
-	public Student deleteStudentByName(String studentName) {
-		return Students.deleteStudentByName(studentName);
+	public List<Student> getListOfStudents(){
+      	return studentRepo.findAll();
 	}
-	public Student  addStudent(Student student)
-	{
-		return Students.addStudent(student);
+	public Student getStudent(int studentId) {
+		if(!studentRepo.existsById(studentId)) {
+			throw new StudentNotFoundException("student with id : ["+studentId+"] Not Found"); 
+		}
+		return studentRepo.getOne(studentId);
 	}
+	@Transactional
+	public Student addStudent(Student student) {
+		return studentRepo.save(student);
+	}	
+	@Transactional
+	public boolean deleteStudent(int studentId) {
+		studentRepo.deleteById(studentId);
+		return !studentRepo.existsById(studentId);
+	}
+	@Transactional
+	public Student updateStudent(Student newStudentData) {
+		Student student=studentRepo.getOne(newStudentData.getStudentId());		
+		student.setDob(newStudentData.getDob());
+		student.setStudentName(newStudentData.getStudentName());
+		studentRepo.save(student);
+		return student;
 
+}
 }

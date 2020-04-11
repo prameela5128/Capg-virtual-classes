@@ -2,6 +2,10 @@ package com.capg.demo.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+@Entity
+@Table(name="Student_details")
 public class Student {
 
 	private int studentId;
