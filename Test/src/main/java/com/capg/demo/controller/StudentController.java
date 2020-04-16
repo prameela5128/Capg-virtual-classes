@@ -21,45 +21,44 @@ import com.capg.demo.service.StudentService;
 @RestController
 @RequestMapping("/api")
 public class StudentController {
-	@Autowired
-	StudentService service;
+	@Autowired(required=false)
+	StudentService StudentService;
 	
-	@GetMapping("/students")
-	public ResponseEntity<List<Student>> getAllStudent(){
-		List<Student> allStudents=service.getListOfStudents();
-		
-		return new ResponseEntity<List<Student>>(allStudents,HttpStatus.OK);
+	@GetMapping("/all")
+	public ResponseEntity<List<Student>> getAllStudents(){	
+		return new ResponseEntity<List<Student>>(StudentService.getAllStudents(),HttpStatus.OK);
 	}
 	
-	@GetMapping("/students/id/{id}")
 	
+	@GetMapping("/student/id/{id}")
 	public ResponseEntity<Student> getStudentById(@PathVariable("id") int studentId) {
-		
-		Student student= service.getStudent(studentId);
-		
-		return new ResponseEntity<Student>(student,HttpStatus.OK);
+		return new ResponseEntity<Student>(StudentService.getStudentById(studentId),HttpStatus.OK);
 	}
 	
-	@PostMapping("/students")
-	public ResponseEntity<Student> addStudent(@RequestBody Student student){
-		service.addStudent(student);
-		return new ResponseEntity<Student>(student,HttpStatus.CREATED);
+	
+	@GetMapping("/student/name/{name}")
+	public ResponseEntity<Student> getStudentByName(@PathVariable("name") String studentName) {
+		
+		return new ResponseEntity<Student>(StudentService.getStudentByName(studentName),HttpStatus.OK);
 	}
 
-	@PutMapping("/students")
+	@PostMapping("/add")
+	public ResponseEntity<Student> addStudent(@RequestBody Student student){
+		
+		return new ResponseEntity<Student>(StudentService.addStudent(student),HttpStatus.OK);
+	}
+
+	@PutMapping("/student")
 	public ResponseEntity<Student> updateStudent(@RequestBody Student student){
 		
-		
-		Student newStudentData=service.updateStudent(student);
-		
-		return new ResponseEntity<Student>(student,HttpStatus.OK);
+		return new ResponseEntity<Student>(StudentService.updateStudent(student),HttpStatus.OK);
 		
 	}
 
-	@DeleteMapping("/students/id/{id}")
-	public ResponseEntity<Student> deleteStudent(@PathVariable("id") int studentId) {
+	@DeleteMapping("/student/id/{id}")
+	public boolean deleteById(@PathVariable("id") int studentId) {
 		
-			return new ResponseEntity<Student>(HttpStatus.OK);
+			return StudentService.deleteById(studentId);
 		
 	}
 }

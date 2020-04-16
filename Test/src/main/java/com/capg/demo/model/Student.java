@@ -5,15 +5,19 @@ import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 @Entity
-@Table(name="Student_details")
 public class Student {
 	@Id
 	private int studentId;
 	private String studentName;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate dob ;
 	
-	@Override
+	public Student() {
+		
+	}
 	public String toString() {
 		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", dob=" + dob + "]";
 	}
