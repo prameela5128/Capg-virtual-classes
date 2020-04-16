@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@ComponentScan("com.capg.practice.labprog1")
+@ComponentScan("com.capg.EmployeeDetails")
 @PropertySource("app.properties")
 public class EmployeeConfiguration {
 	

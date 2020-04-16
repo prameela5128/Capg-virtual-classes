@@ -14,7 +14,7 @@ public class Employee {
 	public String employeeName;
 	@Value("${employee.salary}")
 	public double salary;
-	public SBU businessUnit;
+	public Sbu businessUnit;
 	@Value("${employee.age}")
 	public int age;
 	
@@ -48,7 +48,7 @@ public class Employee {
 				+ ", businessUnit=" + getSbuDetails() + ", age=" + age + "]";
 	}
 	
-	public Employee(int employeeId, String employeeName, double salary, SBU businessUnit, int age) {
+	public Employee(int employeeId, String employeeName, double salary, Sbu businessUnit, int age) {
 		super();
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
@@ -60,9 +60,9 @@ public class Employee {
 		super();
 	}
 	
-	public SBU getSbuDetails() {
+	public Sbu getSbuDetails() {
 		ApplicationContext c=new AnnotationConfigApplicationContext(EmployeeConfiguration.class);
-        businessUnit=(SBU)c.getBean("sbu");
+        businessUnit=(Sbu)c.getBean("sbu");
 		return businessUnit;
 	}
 

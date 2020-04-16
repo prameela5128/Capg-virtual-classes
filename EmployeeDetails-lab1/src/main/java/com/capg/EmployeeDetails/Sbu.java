@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("sbu")
-public class SBU {
+public class Sbu {
 	
 	@Value("${sbu.sbuId}")
 	public String sbuId;
@@ -14,7 +14,7 @@ public class SBU {
 	public String sbuName;
 	@Value("${sbu.sbuHead}")
 	public String sbuHead;
-	public SBU() {
+	public Sbu() {
 		super();
 	}
 	
@@ -23,7 +23,7 @@ public class SBU {
 	public String toString() {
 		return "SBU [sbuId=" + sbuId + ", sbuName=" + sbuName + ", sbuHead=" + sbuHead + "]";
 	}
-	public SBU(String sbuId, String sbuName, String sbuHead) {
+	public Sbu(String sbuId, String sbuName, String sbuHead) {
 		super();
 		this.sbuId = sbuId;
 		this.sbuName = sbuName;
