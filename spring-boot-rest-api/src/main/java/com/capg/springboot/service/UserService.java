@@ -1,4 +1,4 @@
-package com.capg.springboot.service;
+ package com.capg.springboot.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,10 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.transaction.Transactional;
 
+import org.hibernate.loader.plan.exec.process.spi.ReturnReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.capg.springboot.exceptions.UserNotFoundException;
 import com.capg.springboot.model.User;
@@ -18,7 +19,7 @@ import com.capg.springboot.repository.UserRepo;
 
 @Service
 public class UserService {
- 
+
 //	@Autowired
 //	UserRepo repo;
 	
